@@ -1,11 +1,9 @@
 import random
 import sys
 
-
-# lets set some variables
 wordList = [
-"lion", "umbrella", "window", "computer", "glass", "juice", "chair", "desktop",
- "laptop", "dog", "cat", "lemon", "cabel", "mirror", "hat"
+"liutas", "sketis", "langas", "kompiuteris", "stiklas", "stogas", "laiptai", "desktop",
+ "kaledos", "katinas", "kobra", "citrina", "obuolys", "sninga", "lova"
            ]
 
 guess_word = []
@@ -14,35 +12,29 @@ length_word = len(secretWord)
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 letter_storage = []
 
-
-
 def beginning():
-    print("Hello Mate!\n")
+    print("Labukas!\n")
 
     while True:
-        name = input("Please enter Your name\n").strip()
+        name = input("Kuo tu vardu?\n").strip()
 
         if name == '':
-            print("You can't do that! No blank lines")
+            print("Taip negalima! Jokiu tusciu eiluciu :)")
         else:
             break
 
 beginning()
 
-
-
 def newFunc():
-    print("Well, that's perfect moment to play some Hangman!\n")
-
+    print("Manau puikus metas pazaisti kartuves!\n")
     while True:
-        gameChoice = input("Would You?\n").upper()
-
-        if gameChoice == "YES" or gameChoice == "Y":
+        gameChoice = input("Ar zaidziam?\n").upper()
+        if gameChoice == "Taip" or gameChoice == "T":
             break
-        elif gameChoice == "NO" or gameChoice == "N":
-            sys.exit("That's a shame! Have a nice day")
+        elif gameChoice == "Ne" or gameChoice == "N":
+            sys.exit("Kaip gaila... Na - geros dienos!")
         else:
-            print("Please Answer only Yes or No")
+            print("Prasome ivesti tik T arba N")
             continue
 
 newFunc()
@@ -50,51 +42,40 @@ newFunc()
 
 
 def change():
-
-    for character in secretWord: # printing blanks for each letter in secret word
+    for character in secretWord:
         guess_word.append("-")
-
-    print("Ok, so the word You need to guess has", length_word, "characters")
-
-    print("Be aware that You can enter only 1 letter from a-z\n\n")
-
+    print("Zodis kuri reikia atspeti turi", length_word, "raides")
+    print("galima ivesti tik raides nuo a-z\n\n")
     print(guess_word)
 
 
 
 def guessing():
     guess_taken = 1
-
     while guess_taken < 10:
-
-
-        guess = input("Pick a letter\n").lower()
-
-        if not guess in alphabet: #checking input
-            print("Enter a letter from a-z alphabet")
-        elif guess in letter_storage: #checking if letter has been already used
-            print("You have already guessed that letter!")
+        guess = input("Spek raide\n").lower()
+        if not guess in alphabet:
+            print("raide reikia rinktis nuo a iki z is ne lietuvisku raidziu")
+        elif guess in letter_storage:
+            print("Sita raide jau spejai!")
         else:
-
             letter_storage.append(guess)
             if guess in secretWord:
-                print("You guessed correctly!")
-                for x in range(0, length_word): #This Part I just don't get it
+                print("Atspejai!")
+                for x in range(0, length_word):
                     if secretWord[x] == guess:
                         guess_word[x] = guess
                         print(guess_word)
-
                 if not '-' in guess_word:
-                    print("You won!")
+                    print("Laimejai!")
                     break
             else:
-                print("The letter is not in the word. Try Again!")
+                print("Sios raides nera zodyje. Spek dar karta!")
                 guess_taken += 1
                 if guess_taken == 10:
-                    print(" Sorry Mate, You lost :<! The secret word was",         secretWord)
-
+                    print("Deja pralaimejai... :<! Zodis buvo",         secretWord)
 
 change()
 guessing()
 
-print("Game Over!")
+print("Zaidimo pabaiga!")
