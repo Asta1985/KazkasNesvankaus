@@ -90,5 +90,6 @@ def pakartot():
             continue
 
 pakartot()
+current_data = guessing()  # ir tada neveikia nes pirmame zaidime rinktos raides jau kartojasi
 
 print("Žaidimo pabaiga!")
