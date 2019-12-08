@@ -1,40 +1,38 @@
 import random
 import sys
 
-wordList = [
-"liutas", "sketis", "langas", "kompiuteris", "stiklas", "stogas", "laiptai", "desktop",
- "kaledos", "katinas", "kobra", "citrina", "obuolys", "sninga", "lova"
+zodziu_sar = [
+"liūtas", "skėtis", "langas", "kompiuteris", "stiklas", "stogas", "laiptai", "ekranas",
+ "kalėdos", "katinas", "šuo", "citrina", "obuolys", "sninga", "lova", "česnakas"
            ]
 
-guess_word = []
-secretWord = random.choice(wordList) # lets randomize single word from the list
-length_word = len(secretWord)
-alphabet = "abcdefghijklmnopqrstuvwxyz"
-letter_storage = []
+speti_zodi = []
+slaptas_zod = random.choice(zodziu_sar)
+zodzio_ilgis = len(slaptas_zod)
+alphabet = "aąbcčdeėęfghiįjklmnopqrsštųuūvwxyzž"
+zodziu_talp = []
 
 def beginning():
     print("Labukas!\n")
-
     while True:
         name = input("Kuo tu vardu?\n").strip()
-
         if name == '':
-            print("Taip negalima! Jokiu tusciu eiluciu :)")
+            print("Taip negalima! Jokių tuščių eilučių :)")
         else:
             break
 
 beginning()
 
 def newFunc():
-    print("Manau puikus metas pazaisti kartuves!\n")
+    print("Manau puikus metas pažaisti kartuves!\n")
     while True:
-        gameChoice = input("Ar zaidziam?\n").upper()
+        gameChoice = input("Ar žaidžiam?\n").upper()
         if gameChoice == "Taip" or gameChoice == "T":
             break
         elif gameChoice == "Ne" or gameChoice == "N":
             sys.exit("Kaip gaila... Na - geros dienos!")
         else:
-            print("Prasome ivesti tik T arba N")
+            print("Prašome įvesti tik T arba N")
             continue
 
 newFunc()
@@ -42,40 +40,40 @@ newFunc()
 
 
 def change():
-    for character in secretWord:
-        guess_word.append("-")
-    print("Zodis kuri reikia atspeti turi", length_word, "raides")
-    print("galima ivesti tik raides nuo a-z\n\n")
-    print(guess_word)
+    for character in slaptas_zod:
+        speti_zodi.append("-")
+    print("Žodis kuri reikia atspėti turi", zodzio_ilgis, "raides")
+    print("galima ivesti tik raides nuo a iki ž\n\n")
+    print(speti_zodi)
 
 
 
 def guessing():
     guess_taken = 1
     while guess_taken < 10:
-        guess = input("Spek raide\n").lower()
+        guess = input("Spėk raide\n").lower()
         if not guess in alphabet:
-            print("raide reikia rinktis nuo a iki z is ne lietuvisku raidziu")
-        elif guess in letter_storage:
-            print("Sita raide jau spejai!")
+            print("raidę reikia rinktis nuo a iki ž su lietuviškom raidėm")
+        elif guess in zodziu_talp:
+            print("Šitą raidę jau spėjai!")
         else:
-            letter_storage.append(guess)
-            if guess in secretWord:
-                print("Atspejai!")
-                for x in range(0, length_word):
-                    if secretWord[x] == guess:
-                        guess_word[x] = guess
-                        print(guess_word)
-                if not '-' in guess_word:
-                    print("Laimejai!")
+            zodziu_talp.append(guess)
+            if guess in slaptas_zod:
+                print("Atspėjai!")
+                for x in range(0, zodzio_ilgis):
+                    if slaptas_zod[x] == guess:
+                        speti_zodi[x] = guess
+                        print(speti_zodi)
+                if not '-' in speti_zodi:
+                    print("Laimėjai!")
                     break
             else:
-                print("Sios raides nera zodyje. Spek dar karta!")
+                print("Šios raidės nėra žodyje. Spėk dar kartą!")
                 guess_taken += 1
                 if guess_taken == 10:
-                    print("Deja pralaimejai... :<! Zodis buvo",         secretWord)
+                    print("Dėja pralaimėjai... :(! Žodis buvo", slaptas_zod)
 
 change()
 guessing()
 
-print("Zaidimo pabaiga!")
+print("Žaidimo pabaiga!")
