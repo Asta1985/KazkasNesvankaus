@@ -76,4 +76,19 @@ def guessing():
 change()
 guessing()  #kaip padaryt kad vel pradetu nuo zodzio ar zaisim dar karta?
 
+
+def pakartot():
+    print("Gal pabandom dar kart?\n")
+    while True:
+        gameChoice = input("Ar žaidžiam?\n").upper()
+        if gameChoice == "Taip" or gameChoice == "T":
+            break
+        elif gameChoice == "Ne" or gameChoice == "N":
+            sys.exit("Kaip gaila... Na - geros dienos!")
+        else:
+            print("Prašome įvesti tik T arba N")
+            continue
+
+pakartot()
+
 print("Žaidimo pabaiga!")
