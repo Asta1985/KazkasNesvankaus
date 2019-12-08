@@ -4,7 +4,7 @@ import sys
 zodziu_sar = [
 "liūtas", "skėtis", "langas", "kompiuteris", "stiklas", "stogas", "laiptai", "ekranas",
  "kalėdos", "katinas", "šuo", "citrina", "obuolys", "sninga", "lova", "česnakas"
-           ]
+           ]  # kaip padaryt kad iseitu uploadint wordlist
 
 speti_zodi = []
 slaptas_zod = random.choice(zodziu_sar)
@@ -27,7 +27,7 @@ def newFunc():
     print("Manau puikus metas pažaisti kartuves!\n")
     while True:
         gameChoice = input("Ar žaidžiam?\n").upper()
-        if gameChoice == "Taip" or gameChoice == "T":
+        if gameChoice == "Taip" or gameChoice == "T":   #neveikia su taip
             break
         elif gameChoice == "Ne" or gameChoice == "N":
             sys.exit("Kaip gaila... Na - geros dienos!")
@@ -74,6 +74,6 @@ def guessing():
                     print("Dėja pralaimėjai... :(! Žodis buvo", slaptas_zod)
 
 change()
-guessing()
+guessing()  #kaip padaryt kad vel pradetu nuo zodzio ar zaisim dar karta?
 
 print("Žaidimo pabaiga!")
