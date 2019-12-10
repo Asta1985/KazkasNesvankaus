@@ -80,7 +80,6 @@ if __name__ == '__main__':
     zaidimas.pakartot("Manau puikus metas pažaisti kartuves!\n")
     zaidimas.change()
     zaidimas.guessing()
-    # kaip padaryt kad vel pradetu nuo zodzio ar zaisim dar karta?
     zaidimas.pakartot("Gal pabandom dar kart?\n")
     zaidimas.change()
     zaidimas.guessing()  # ir tada neveikia nes pirmame zaidime rinktos raides jau kartojasi
