@@ -1,10 +1,10 @@
 import random
 import sys
 
-zodziu_sar = ['xii'
-    #"liūtas", "skėtis", "langas", "kompiuteris", "stiklas", "stogas", "laiptai", "ekranas",
-    # "kalėdos", "katinas", "šuo", "citrina", "obuolys", "sninga", "lova", "česnakas"
-]  # kaip padaryt kad iseitu uploadint wordlist
+zodziu_sar = [
+    "liūtas", "skėtis", "langas", "kompiuteris", "stiklas", "stogas", "laiptai", "ekranas",
+     "kalėdos", "katinas", "šuo", "citrina", "obuolys", "sninga", "lova", "česnakas"
+]
 
 
 class Zaidimas:
@@ -82,5 +82,10 @@ if __name__ == '__main__':
     zaidimas.guessing()
     zaidimas.pakartot("Gal pabandom dar kart?\n")
     zaidimas.change()
-    zaidimas.guessing()  # ir tada neveikia nes pirmame zaidime rinktos raides jau kartojasi
+    zaidimas.guessing()
     print("Žaidimo pabaiga!")
+    while True:
+        zaidimas.pakartot("Gal pabandom dar kart?\n")
+        zaidimas.change()
+        zaidimas.guessing()
+        pass
